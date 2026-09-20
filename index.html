@@ -33,8 +33,8 @@ src="https://www.facebook.com/tr?id=1557565155585123&ev=PageView&noscript=1"
 <style>
 :root{--bg:#050b07;--bg2:#0b1a10;--bg3:#0f2316;--gold:#C9A84C;--gold-b:#e0c060;--gold-d:#8a6e32;--cream:#F5EEDA;--c8:rgba(245,238,218,.8);--c5:rgba(245,238,218,.5);--c3:rgba(245,238,218,.3);--c1:rgba(245,238,218,.1);--c05:rgba(245,238,218,.05);--g2:rgba(201,168,76,.2);--g1:rgba(201,168,76,.1);--g05:rgba(201,168,76,.05)}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0)}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0);overflow-x:hidden;max-width:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%;padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
 
 /* GRAIN TEXTURE */
 body::before{content:'';position:fixed;inset:0;opacity:.03;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -106,8 +106,9 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 .inc-card:hover{border-color:var(--g2);transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.2)}
 .inc-card:hover::before{opacity:1}
 .inc-n{font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--gold-b);flex-shrink:0;width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,rgba(201,168,76,.12),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.2)}
-.inc-b h3{font-weight:700;font-size:16px;color:var(--cream);margin-bottom:5px}
-.inc-b p{font-size:13.5px;color:var(--c5);line-height:1.65}
+.inc-b{min-width:0;flex:1}
+.inc-b h3{font-weight:700;font-size:16px;color:var(--cream);margin-bottom:5px;overflow-wrap:anywhere}
+.inc-b p{font-size:13.5px;color:var(--c5);line-height:1.65;overflow-wrap:anywhere}
 
 /* ═══ FEATURES ═══ */
 .feats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -130,23 +131,25 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 /* ═══ PRICING ═══ */
 .pri{text-align:center;max-width:860px;margin:0 auto;padding:80px 24px}
 .pri-sub{font-size:15px;color:var(--c5);line-height:1.65;max-width:500px;margin:-28px auto 44px}
-.pri-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;margin-bottom:36px}
+.pri-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:center;margin-bottom:36px}
 @media(max-width:560px){.pri-grid{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}}
 
-.pc{padding:32px 28px;border-radius:22px;background:linear-gradient(155deg,var(--bg3),var(--bg2) 60%);border:1px solid var(--c1);display:flex;flex-direction:column;position:relative;box-shadow:0 16px 48px rgba(0,0,0,.2);transition:all .3s}
+.pc{padding:40px 28px 32px;border-radius:22px;background:linear-gradient(155deg,var(--bg3),var(--bg2) 60%);border:1px solid var(--c1);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;box-shadow:0 16px 48px rgba(0,0,0,.2);transition:all .3s}
 .pc:hover{transform:translateY(-3px)}
-.pc.best{border-color:var(--gold);background:radial-gradient(circle at 100% 0,rgba(201,168,76,.12),transparent 50%),linear-gradient(155deg,#132b1a,var(--bg2) 70%);box-shadow:0 20px 60px rgba(201,168,76,.08),0 16px 48px rgba(0,0,0,.2)}
-.pc-tag{position:absolute;top:-14px;right:20px;background:linear-gradient(135deg,var(--gold-b),var(--gold));color:var(--bg);font-size:11px;font-weight:800;padding:8px 16px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 6px 20px rgba(201,168,76,.25)}
-.pc-label{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
-.pc-desc{font-size:15px;font-weight:500;color:var(--c8);line-height:1.4;min-height:42px;margin-bottom:20px}
-.pc-price{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(40px,5vw,52px);color:var(--cream);line-height:1;letter-spacing:-.04em}
-.pc-per{font-size:13px;color:var(--c5);margin-top:6px}
-.pc-eq{font-size:12px;color:var(--gold-b);margin-top:12px;font-weight:700;min-height:18px}
-.pc-div{height:1px;background:var(--c1);margin:24px 0 20px}
-.pc-ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex-grow:1}
-.pc-ul li{font-size:13px;color:var(--c8);line-height:1.45;display:flex;gap:9px;align-items:flex-start}
+.pc.best{border-color:var(--gold);background:radial-gradient(circle at 50% 0,rgba(201,168,76,.12),transparent 50%),linear-gradient(155deg,#132b1a,var(--bg2) 70%);box-shadow:0 20px 60px rgba(201,168,76,.08),0 16px 48px rgba(0,0,0,.2)}
+.pc-tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold-b),var(--gold));color:var(--bg);font-size:11px;font-weight:800;padding:8px 16px;border-radius:999px;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 6px 20px rgba(201,168,76,.25);white-space:nowrap}
+.pc-label{font-size:11px;font-weight:800;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px}
+.pc-desc{font-size:15px;font-weight:500;color:var(--c8);line-height:1.4;margin-bottom:18px}
+.pc-price{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,8vw,56px);color:var(--cream);line-height:1;letter-spacing:-.04em;display:flex;align-items:baseline;justify-content:center;gap:8px}
+.pc-price span{font-family:'Inter',sans-serif;font-size:.38em;font-weight:700;letter-spacing:.02em;color:var(--c8);transform:translateY(-6px)}
+.pc-per{font-size:13px;color:var(--c5);margin-top:8px}
+.pc-eq{font-size:12px;color:var(--gold-b);margin-top:10px;font-weight:700;min-height:18px}
+.pc-eq:empty{display:none;min-height:0;margin:0}
+.pc-div{height:1px;background:var(--c1);margin:22px 0 20px;width:100%}
+.pc-ul{list-style:none;display:flex;flex-direction:column;align-items:center;gap:11px;margin-bottom:28px;flex-grow:1;width:100%}
+.pc-ul li{font-size:13px;color:var(--c8);line-height:1.45;display:flex;gap:9px;align-items:flex-start;width:fit-content;max-width:100%;text-align:left}
 .pc-ul li::before{content:'✓';color:var(--gold-b);font-weight:800;flex-shrink:0}
-.pc-btn{display:block;text-align:center;padding:16px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:all .25s}
+.pc-btn{display:block;text-align:center;padding:16px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;text-transform:uppercase;letter-spacing:.04em;transition:all .25s;width:100%}
 .pc .pc-btn{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
 .pc .pc-btn:hover{background:var(--gold);color:var(--bg)}
 .pc.best .pc-btn{background:var(--gold);color:var(--bg);border:1.5px solid var(--gold);box-shadow:0 4px 20px rgba(201,168,76,.2)}
@@ -163,6 +166,43 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 /* ═══ SPACER ═══ */
 .sp{height:1px;max-width:700px;margin:0 auto;background:linear-gradient(90deg,transparent,var(--c1),transparent)}
 
+@media(max-width:720px){
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.mq{padding:8px 0}
+.mq-i{font-size:10px;padding:0 14px;letter-spacing:.08em}
+.hdr{padding:8px 16px 2px}
+.hdr img{height:28px;width:28px}
+.hero{padding:2px 16px 28px;overflow:hidden}
+.hero::before,.vid::after{display:none}
+.hero-ey{font-size:9px;letter-spacing:.14em;margin-bottom:6px}
+.hero h1{font-size:20px;line-height:1.2;margin-bottom:10px;letter-spacing:-.02em}
+.hero-p{font-size:13px;line-height:1.5;margin:12px auto 14px}
+.vid{max-width:min(340px,calc(100vw - 32px));width:100%;margin:0 auto 4px;overflow:hidden;border-radius:18px}
+vturb-smartplayer{max-width:100%!important;border-radius:18px;border-width:1px}
+.cta{width:100%;padding:16px 12px;font-size:13.5px}
+.cta-sub{font-size:11px;margin-top:10px}
+.sc{padding:48px 16px;overflow-x:hidden}
+.sc-t{font-size:22px;margin-bottom:28px}
+.ba-side{padding:24px 18px}
+.inc-card{padding:16px 14px;gap:12px}
+.inc-card:hover{transform:none}
+.inc-n{width:40px;height:40px;font-size:15px;border-radius:12px}
+.inc-b h3{font-size:14px}
+.inc-b p{font-size:12.5px;line-height:1.55}
+.ft{padding:22px 18px}
+.proof-box{padding:12px;max-width:100%}
+.pri{padding:48px 16px;overflow-x:hidden}
+.pri-sub{font-size:13.5px;margin:-16px auto 28px}
+.pri-grid{max-width:100%}
+.pc{padding:36px 18px 26px}
+.pc:hover{transform:none}
+.pc-price{font-size:48px}
+.pc-desc{font-size:14px;margin-bottom:14px}
+.pc-btn{font-size:13.5px;padding:15px 12px}
+.pc-eq{min-height:0}
+.ftr{padding:28px 16px}
+}
+
 @media(prefers-color-scheme:dark){:root{}}
 </style>
 </head>
@@ -177,13 +217,13 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 <section class="hero">
 <div class="hero-ey">Catálogo digital para atacado</div>
 <h1>Você ainda manda catálogo em PDF e <em>perde venda</em> sem perceber?</h1>
-<p class="hero-p">Seus concorrentes já apresentam com vídeo, desconto automático e pedido pelo WhatsApp. O lojista compra de quem facilita.</p>
 
 <div class="vid">
 <vturb-smartplayer id="vid-6aaf8d79434bca144e73139a" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
 </div>
 <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/430f3223-a4e5-4ebe-8b79-f6b829c3ecc6/players/6aaf8d79434bca144e73139a/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
+<p class="hero-p">Seus concorrentes já apresentam com vídeo, desconto automático e pedido pelo WhatsApp. O lojista compra de quem facilita.</p>
 <div class="cta-w"><a href="#planos" class="cta">Quero meu catálogo profissional</a><span class="cta-sub">A partir de R$32/mês · 7 dias de garantia</span></div>
 </section>
 
@@ -270,7 +310,7 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 <div class="pc">
 <div class="pc-label">Mensal</div>
 <div class="pc-desc">Comece agora, pague mês a mês</div>
-<div class="pc-price">R$ 47</div>
+<div class="pc-price"><span>R$</span>47</div>
 <div class="pc-per">por mês</div>
 <div class="pc-eq"></div>
 <div class="pc-div"></div>
@@ -288,7 +328,7 @@ vturb-smartplayer{display:block!important;margin:0 auto;width:100%!important;max
 <div class="pc-tag">Economize R$44</div>
 <div class="pc-label">Trimestral</div>
 <div class="pc-desc">Mais tempo pra vender, menor custo</div>
-<div class="pc-price">R$ 97</div>
+<div class="pc-price"><span>R$</span>97</div>
 <div class="pc-per">a cada 3 meses</div>
 <div class="pc-eq">R$32/mês — 31% de economia</div>
 <div class="pc-div"></div>
